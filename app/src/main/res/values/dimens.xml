@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="progressBar">50dp</dimen>
+    <dimen name="currencyCardWidth">150dp</dimen>
+    <dimen name="currencyCardHeight">50dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="largeText">16sp</dimen>
+    <dimen name="cornerRadius">8dp</dimen>
+</resources>
