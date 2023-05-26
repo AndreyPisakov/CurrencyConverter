@@ -54,8 +54,11 @@ dependencies {
     implementation Libs.Google.Hilt
     kapt Libs.Google.HiltCompiler
 
+    implementation Libs.Google.Gson
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation project(Modules.Core.CommonImpl)
     implementation project(Modules.Core.Presentation)
+    implementation project(Modules.Data)
 }

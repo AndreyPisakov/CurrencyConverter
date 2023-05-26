@@ -1,7 +1,8 @@
-package com.pisakov.currencyconverter
+package com.pisakov.currencyconverter.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.pisakov.currencyconverter.R
 import com.pisakov.currencyconverter.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

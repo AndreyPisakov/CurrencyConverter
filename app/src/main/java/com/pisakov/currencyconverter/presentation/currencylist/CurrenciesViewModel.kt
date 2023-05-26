@@ -1,4 +1,4 @@
-package com.pisakov.currencyconverter
+package com.pisakov.currencyconverter.presentation.currencylist
 
 import androidx.lifecycle.ViewModel
 

@@ -4,8 +4,8 @@ import com.pisakov.common.Logger
 import com.pisakov.data.currency.entities.CurrencyDataEntity
 import com.pisakov.data.currency.sources.CurrencyApi
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ class CurrencyDataRepositoryImpl @Inject constructor(
 
     private val currencyFlow = MutableStateFlow<CurrencyDataEntity?>(null)
 
-    override fun getCurrencyRates(): StateFlow<CurrencyDataEntity?> {
+    override fun getCurrencyRates(): Flow<CurrencyDataEntity?> {
         return currencyFlow
     }
 

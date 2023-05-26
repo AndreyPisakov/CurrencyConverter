@@ -23,6 +23,7 @@ buildscript {
                 ],
                 Google   : [
                         Material    : "com.google.android.material:material:1.7.0",
+                        Gson        : "com.google.code.gson:gson:2.9.0",
                         Hilt        : "com.google.dagger:hilt-android:$hiltVersion",
                         HiltCompiler: "com.google.dagger:hilt-compiler:$hiltVersion"
                 ],

@@ -1,9 +1,8 @@
-package com.pisakov.currencyconverter
+package com.pisakov.currencyconverter.presentation.currencylist
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.pisakov.currencyconverter.R
 import com.pisakov.currencyconverter.databinding.FragmentCurrenciesBinding
 import com.pisakov.presentation.viewBinding
 import dagger.hilt.android.AndroidEntryPoint

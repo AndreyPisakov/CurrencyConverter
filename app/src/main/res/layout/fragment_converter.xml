@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding"
-    tools:context=".ConverterFragment">
+    tools:context=".presentation.currencyconverter.ConverterFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filledTextField"
