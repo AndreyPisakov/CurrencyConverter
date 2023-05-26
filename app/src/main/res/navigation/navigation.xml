@@ -11,8 +11,8 @@
         android:label="fragment_converter"
         tools:layout="@layout/fragment_converter" >
         <argument
-            android:name="currencyRate"
-            app:argType="kotlin.Pair" />
+            android:name="currency"
+            app:argType="com.pisakov.currencyconverter.domain.entities.Currency" />
     </fragment>
     <fragment
         android:id="@+id/currenciesFragment"

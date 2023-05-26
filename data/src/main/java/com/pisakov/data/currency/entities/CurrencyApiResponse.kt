@@ -11,5 +11,5 @@ data class CurrencyApiResponse(
     @SerializedName("time_next_update_unix") val timeNextUpdateUnix: Int,
     @SerializedName("time_next_update_utc") val timeNextUpdateUtc: String,
     @SerializedName("base_code") val baseCode: String,
-    @SerializedName("conversion_rates") val conversionRates: CurrencyDataEntity
+    @SerializedName("conversion_rates") val conversionRates: Map<String, Double>
 )
