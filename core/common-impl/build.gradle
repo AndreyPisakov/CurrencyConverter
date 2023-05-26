@@ -1,23 +1,20 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs'
     id 'com.google.dagger.hilt.android'
 }
 
 android {
-    namespace 'com.pisakov.currencyconverter'
+    namespace 'com.pisakov.common_impl'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.pisakov.currencyconverter"
         minSdk 23
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -33,29 +30,13 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
-    implementation Libs.Android.CoreKtx
-    implementation Libs.Android.AppCompat
-    implementation Libs.Android.ConstraintLayout
-    implementation Libs.Android.LifecycleViewModelKtx
-
-    implementation Libs.Android.NavigationFragments
-    implementation Libs.Android.NavigationUI
-
-    implementation Libs.Google.Material
-
     implementation Libs.JetBrains.CoroutinesCore
 
     implementation Libs.Google.Hilt
     kapt Libs.Google.HiltCompiler
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    implementation project(Modules.Core.CommonImpl)
-    implementation project(Modules.Core.Presentation)
+    api project(Modules.Core.Common)
 }
