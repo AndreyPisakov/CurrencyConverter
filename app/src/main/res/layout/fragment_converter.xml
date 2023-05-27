@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding"
-    tools:context=".presentation.currencyconverter.ConverterFragment">
+    android:background="@color/screenBackground"
+    tools:context=".presentation.currencyConverter.ConverterFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filledTextField"
@@ -14,16 +15,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding"
         app:boxBackgroundMode="outline"
+        app:hintTextColor="@color/hint"
+        android:hint="@string/rub"
         app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:hint="RUB">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etRubles"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal|numberSigned" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -33,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding"
+        app:hintTextColor="@color/hint"
         app:boxBackgroundMode="outline"
         app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +48,8 @@
             android:id="@+id/etCurrency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/filledTextField"
-            tools:layout_editor_absoluteX="16dp" />
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@+id/filledTextField" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,6 +59,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_1_rub"
         android:textSize="@dimen/largeText"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,6 +69,7 @@
         android:layout_height="wrap_content"
         tools:text="0,012502 USD"
         android:textSize="@dimen/largeText"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />

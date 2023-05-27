@@ -5,14 +5,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/padding"
-    tools:context=".presentation.currencylist.CurrenciesFragment">
+    android:background="@color/screenBackground"
+    tools:context=".presentation.currencyList.CurrenciesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/padding"
-        android:background="@color/rvBackground"
+        android:paddingBottom="@dimen/padding"
+        android:background="@color/screenBackground"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
