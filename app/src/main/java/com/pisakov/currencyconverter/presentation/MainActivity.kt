@@ -2,12 +2,11 @@ package com.pisakov.currencyconverter.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.pisakov.currencyconverter.R
 import com.pisakov.currencyconverter.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
     private val binding by lazy(LazyThreadSafetyMode.NONE) {
         ActivityMainBinding.inflate(layoutInflater)

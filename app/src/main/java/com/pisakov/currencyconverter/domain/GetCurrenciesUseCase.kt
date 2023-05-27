@@ -7,7 +7,11 @@ import javax.inject.Inject
 class GetCurrenciesUseCase @Inject constructor(
     private val currencyRepository: CurrencyRepository
 ) {
-    fun getCurrencies(): Flow<List<Currency>> {
+    fun getCurrencies(): Flow<List<Currency>?> {
         return currencyRepository.getCurrencies()
+    }
+
+    suspend fun updateCurrencies() {
+        currencyRepository.updateRates()
     }
 }

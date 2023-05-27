@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/converterFragment"
-        android:name="com.pisakov.currencyconverter.presentation.currencyconverter.ConverterFragment"
+        android:name="com.pisakov.currencyconverter.presentation.currencyConverter.ConverterFragment"
         android:label="fragment_converter"
         tools:layout="@layout/fragment_converter" >
         <argument
-            android:name="currencyRate"
-            app:argType="kotlin.Pair" />
+            android:name="currency"
+            app:argType="com.pisakov.currencyconverter.domain.entities.Currency" />
     </fragment>
     <fragment
         android:id="@+id/currenciesFragment"
-        android:name="com.pisakov.currencyconverter.presentation.currencylist.CurrenciesFragment"
+        android:name="com.pisakov.currencyconverter.presentation.currencyList.CurrenciesFragment"
         android:label="fragment_currencies"
         tools:layout="@layout/fragment_currencies" >
         <action

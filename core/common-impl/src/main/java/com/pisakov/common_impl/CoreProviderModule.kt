@@ -11,7 +11,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineScope
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,11 +23,6 @@ class CoreProviderModule {
         return DefaultCoreProvider(
             appContext = context
         )
-    }
-
-    @Provides
-    fun provideCoroutineScope(): CoroutineScope {
-        return Core.globalScope
     }
 
     @Provides

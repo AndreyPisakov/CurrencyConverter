@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Currency Converter</string>
-    <string name="currencyCode">Код валюты</string>
-    <string name="_1_rub">1 RUB =</string>
+    <string name="currencyCode">Currency code</string>
+    <string name="_1_rub">1 RUB = </string>
+    <string name="rub">RUB</string>
+    <string name="incorrect_input">Incorrect input</string>
 </resources>

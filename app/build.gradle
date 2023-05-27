@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
     id 'com.google.dagger.hilt.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -43,20 +44,20 @@ dependencies {
     implementation Libs.Android.AppCompat
     implementation Libs.Android.ConstraintLayout
     implementation Libs.Android.LifecycleViewModelKtx
+    implementation Libs.Android.FragmentKtx
 
     implementation Libs.Android.NavigationFragments
     implementation Libs.Android.NavigationUI
 
     implementation Libs.Google.Material
+    implementation Libs.Google.Gson
 
     implementation Libs.JetBrains.CoroutinesCore
 
     implementation Libs.Google.Hilt
     kapt Libs.Google.HiltCompiler
 
-    implementation Libs.Google.Gson
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation project(Modules.Core.CommonImpl)
     implementation project(Modules.Core.Presentation)

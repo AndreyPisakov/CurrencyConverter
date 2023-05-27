@@ -1,11 +1,10 @@
 package com.pisakov.data.currency.repositotyes
 
-import com.pisakov.data.currency.entities.CurrencyDataEntity
 import kotlinx.coroutines.flow.Flow
 
 interface CurrencyDataRepository {
 
-    fun getCurrencyRates(): Flow<CurrencyDataEntity?>
+    fun getCurrencyRates(): Flow<Map<String, Double>?>
 
-    fun updateCurrencyRates()
+    suspend fun updateCurrencyRates()
 }

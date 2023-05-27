@@ -4,9 +4,12 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/padding">
+    android:paddingHorizontal="@dimen/padding"
+    android:paddingTop="@dimen/padding">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:background="@color/cardBackground"
         android:layout_width="@dimen/currencyCardWidth"
         android:layout_height="@dimen/currencyCardHeight"
         app:cardCornerRadius="@dimen/cornerRadius">
@@ -22,6 +25,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/largeText"
+                android:textColor="@color/text"
                 android:layout_weight="10"
                 android:layout_gravity="center_vertical|start"
                 tools:text="USD" />
@@ -31,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
+                android:textColor="@color/text"
                 tools:text="0,012502" />
 
         </LinearLayout>
