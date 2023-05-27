@@ -1,7 +1,7 @@
 package com.pisakov.currencyconverter.presentation.currencyConverter
 
 import androidx.lifecycle.ViewModel
-import com.pisakov.currencyconverter.domain.ConvertCurrencyUseCase
+import com.pisakov.currencyconverter.domain.currencyConverter.ConvertCurrencyUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

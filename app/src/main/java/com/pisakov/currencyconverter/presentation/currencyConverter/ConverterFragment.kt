@@ -48,21 +48,13 @@ class ConverterFragment : Fragment(R.layout.fragment_converter) {
 
     companion object {
         const val RUB_PATTERN = "[0-9]+((\\.[0-9]{0,1})?)|(\\.)?"
-
     }
 }
 
 class DecimalDigitsInputFilter(private val mPattern: Pattern) : InputFilter {
-
-    override fun filter(
-        source: CharSequence,
-        start: Int,
-        end: Int,
-        dest: Spanned,
-        dstart: Int,
-        dend: Int
-    ): CharSequence? {
-        val matcher = mPattern.matcher(dest)
-        return if (!matcher.matches()) "" else null
+    override fun filter(source: CharSequence, start: Int, end: Int,
+        dest: Spanned, dstart: Int, dend: Int): CharSequence? {
+            val matcher = mPattern.matcher(dest)
+            return if (!matcher.matches()) "" else null
     }
 }

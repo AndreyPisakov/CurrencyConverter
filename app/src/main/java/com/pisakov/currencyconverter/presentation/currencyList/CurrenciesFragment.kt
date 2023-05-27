@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pisakov.currencyconverter.R
-import com.pisakov.currencyconverter.ScreenMetrics
+import com.pisakov.currencyconverter.presentation.ScreenMetrics
 import com.pisakov.currencyconverter.databinding.FragmentCurrenciesBinding
 import com.pisakov.presentation.observeStateOn
 import com.pisakov.presentation.viewBinding
@@ -33,7 +33,7 @@ class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
                     )
             }
             adapter = currencyAdapter
-            layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT)
+            layoutManager = GridLayoutManager(requireContext(), ScreenMetrics.SPAN_COUNT)
         }
 
         viewModel.getCurrenciesList().observeStateOn(viewLifecycleOwner) {
@@ -45,9 +45,5 @@ class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
         super.onResume()
         ScreenMetrics.screenWidth = ScreenMetrics.getScreenWidthPx()
         ScreenMetrics.dpToPx = ScreenMetrics.getPaddingPx()
-    }
-
-    companion object {
-        const val SPAN_COUNT = 2
     }
 }

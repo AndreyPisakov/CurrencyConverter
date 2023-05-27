@@ -1,4 +1,4 @@
-package com.pisakov.currencyconverter.domain
+package com.pisakov.currencyconverter.domain.currencyList
 
 import com.pisakov.currencyconverter.domain.entities.Currency
 import kotlinx.coroutines.flow.Flow

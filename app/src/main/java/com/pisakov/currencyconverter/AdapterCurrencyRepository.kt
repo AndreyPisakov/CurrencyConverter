@@ -1,6 +1,6 @@
 package com.pisakov.currencyconverter
 
-import com.pisakov.currencyconverter.domain.CurrencyRepository
+import com.pisakov.currencyconverter.domain.currencyList.CurrencyRepository
 import com.pisakov.currencyconverter.domain.entities.Currency
 import com.pisakov.data.currency.repositotyes.CurrencyDataRepository
 import kotlinx.coroutines.flow.Flow

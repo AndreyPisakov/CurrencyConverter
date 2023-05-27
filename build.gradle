@@ -7,6 +7,7 @@ buildscript {
         hiltVersion = "2.44"
         navVersion = "2.4.0"
         retrofitVersion = "2.9.0"
+        lifecycleVersion = "2.5.1"
 
         Libs = [
                 Android  : [
@@ -14,8 +15,8 @@ buildscript {
                         FragmentKtx          : "androidx.fragment:fragment-ktx:1.5.5",
                         ActivityKtx          : "androidx.activity:activity-ktx:1.6.1",
                         AppCompat            : "androidx.appcompat:appcompat:1.6.0",
-                        LifecycleRuntimeKtx  : "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1",
-                        LifecycleViewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1",
+                        LifecycleRuntimeKtx  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
+                        LifecycleViewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
                         ConstraintLayout     : "androidx.constraintlayout:constraintlayout:2.1.4",
                         RecyclerView         : "androidx.recyclerview:recyclerview:1.2.1",
                         NavigationFragments  : "androidx.navigation:navigation-fragment-ktx:$navVersion",
@@ -23,7 +24,6 @@ buildscript {
                 ],
                 Google   : [
                         Material    : "com.google.android.material:material:1.7.0",
-                        Gson        : "com.google.code.gson:gson:2.9.0",
                         Hilt        : "com.google.dagger:hilt-android:$hiltVersion",
                         HiltCompiler: "com.google.dagger:hilt-compiler:$hiltVersion"
                 ],
@@ -37,7 +37,6 @@ buildscript {
         ]
 
         Modules = [
-                Wiring: ":wiring",
                 Data: ":data",
                 Core: [
                         Common: ":core:common",

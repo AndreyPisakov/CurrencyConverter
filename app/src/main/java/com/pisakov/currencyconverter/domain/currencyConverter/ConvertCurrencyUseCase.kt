@@ -1,4 +1,4 @@
-package com.pisakov.currencyconverter.domain
+package com.pisakov.currencyconverter.domain.currencyConverter
 
 import javax.inject.Inject
 

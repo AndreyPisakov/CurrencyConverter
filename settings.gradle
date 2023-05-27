@@ -16,5 +16,5 @@ rootProject.name = "Currency Converter"
 include ':app'
 include ':data'
 include ':core:common'
-include ':core:presentation'
 include ':core:common-impl'
+include ':core:presentation'

@@ -50,7 +50,6 @@ dependencies {
     implementation Libs.Android.NavigationUI
 
     implementation Libs.Google.Material
-    implementation Libs.Google.Gson
 
     implementation Libs.JetBrains.CoroutinesCore
 

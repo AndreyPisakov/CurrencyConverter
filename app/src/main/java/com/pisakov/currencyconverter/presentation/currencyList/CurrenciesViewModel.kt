@@ -2,7 +2,7 @@ package com.pisakov.currencyconverter.presentation.currencyList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pisakov.currencyconverter.domain.GetCurrenciesUseCase
+import com.pisakov.currencyconverter.domain.currencyList.GetCurrenciesUseCase
 import com.pisakov.currencyconverter.domain.entities.Currency
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
