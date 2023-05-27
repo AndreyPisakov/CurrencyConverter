@@ -36,7 +36,7 @@ class ConverterFragment : Fragment(R.layout.fragment_converter) {
                 override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
                 override fun afterTextChanged(s: Editable) {
                     if (viewModel.validateCurrencyAmount(s.toString()))
-                        etCurrency.setText(viewModel.convertCurrency(s.toString(), currency.rate).toString())
+                        etCurrency.setText(viewModel.convertCurrency(s.toString(), currency.rate))
                     else {
                         etCurrency.setText("")
                         etRubles.error = getString(R.string.incorrect_input)
@@ -47,7 +47,7 @@ class ConverterFragment : Fragment(R.layout.fragment_converter) {
     }
 
     companion object {
-        const val RUB_PATTERN = "[0-9]+((\\.[0-9]{0,1})?)|(\\.)?"
+        const val RUB_PATTERN = "[0-9]{0,13}((\\.[0-9]{0,1})?)|(\\.)?"
     }
 }
 
