@@ -1,6 +1,6 @@
 package com.pisakov.currencyconverter
 
-import com.pisakov.currencyconverter.domain.CurrencyRepository
+import com.pisakov.currencyconverter.domain.currencyList.CurrencyRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
