@@ -6,8 +6,8 @@ import com.pisakov.currencyconverter.domain.currencyList.GetCurrenciesUseCase
 import com.pisakov.currencyconverter.domain.entities.Currency
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -17,8 +17,8 @@ class CurrenciesViewModel @Inject constructor(
     private val getCurrenciesUseCase: GetCurrenciesUseCase
 ) : ViewModel() {
 
-    private var _currenciesStateFlow = MutableStateFlow<List<Currency>?>(null)
-    val currenciesStateFlow = _currenciesStateFlow.asStateFlow()
+    private var _currenciesStateFlow = MutableSharedFlow<List<Currency>?>(1)
+    val currenciesStateFlow = _currenciesStateFlow.asSharedFlow()
 
     init {
         getCurrenciesList()
@@ -28,7 +28,7 @@ class CurrenciesViewModel @Inject constructor(
     private fun getCurrenciesList() {
         viewModelScope.launch {
             getCurrenciesUseCase.getCurrencies().collect {
-                _currenciesStateFlow.value = it
+                _currenciesStateFlow.emit(it)
             }
         }
     }

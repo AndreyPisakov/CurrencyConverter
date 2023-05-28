@@ -2,8 +2,9 @@ package com.pisakov.data.currency.repositotyes
 
 import com.pisakov.common.Logger
 import com.pisakov.data.currency.sources.CurrencyApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 class CurrencyDataRepositoryImpl @Inject constructor(
@@ -11,17 +12,20 @@ class CurrencyDataRepositoryImpl @Inject constructor(
     private val logger: Logger
 ) : CurrencyDataRepository {
 
-    private val currencyFlow = MutableStateFlow<Map<String, Double>?>(null)
+    private val currencyFlow = MutableSharedFlow<Map<String, Double>?>(1)
 
-    override fun getCurrencyRates(): StateFlow<Map<String, Double>?> {
+    override fun getCurrencyRates(): SharedFlow<Map<String, Double>?> {
         return currencyFlow
     }
 
     override suspend fun updateCurrencyRates() {
-        val response = currencyApi.getCurrencyFromApi().execute()
-        if (response.isSuccessful)
+        try {
+            val response = currencyApi.getCurrencyFromApi().execute()
             currencyFlow.emit(response.body()!!.conversionRates)
-        else
-            logger.log("api response not success")
+        } catch (e: UnknownHostException) {
+            logger.err(e, "unknown host")
+        } catch (e: Exception) {
+            logger.err(e, "api response not success")
+        }
     }
 }
