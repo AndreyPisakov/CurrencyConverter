@@ -2,9 +2,11 @@ package com.pisakov.currencyconverter.presentation.currencyList
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pisakov.currencyconverter.R
@@ -13,8 +15,10 @@ import com.pisakov.currencyconverter.presentation.ScreenMetrics
 import com.pisakov.presentation.observeStateOn
 import com.pisakov.presentation.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
@@ -25,12 +29,40 @@ class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.swipeRefreshLayout.isRefreshing = true
 
         initRecycler(view)
         searching()
+        swipeToRefresh()
 
-        viewModel.currenciesStateFlow.filter { it != null }.observeStateOn(viewLifecycleOwner) {
+        viewModel.currenciesStateFlow.observeStateOn(viewLifecycleOwner) {
             currencyAdapter.submitList(it)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
+
+        loadingErrorHandling()
+    }
+
+    private fun swipeToRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.updateCurrencyRates()
+            loadingErrorHandling()
+        }
+    }
+
+    private fun loadingErrorHandling() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            delay(5000)
+            launch(Dispatchers.Main) {
+                if (binding.swipeRefreshLayout.isRefreshing) {
+                    binding.swipeRefreshLayout.isRefreshing = false
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.something_was_wrong),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
     }
 
@@ -53,7 +85,7 @@ class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
         binding.searchView.setOnQueryTextListener(object :
             SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
-                viewModel.currenciesStateFlow.filter { it != null }
+                viewModel.currenciesStateFlow
                     .map { it!!.filter { currency -> currency.currencyCode.startsWith(newText, true) } }
                     .observeStateOn(viewLifecycleOwner) {
                         currencyAdapter.submitList(it)

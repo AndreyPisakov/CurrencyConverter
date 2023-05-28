@@ -45,6 +45,7 @@ dependencies {
     implementation Libs.Android.ConstraintLayout
     implementation Libs.Android.LifecycleViewModelKtx
     implementation Libs.Android.FragmentKtx
+    implementation Libs.Android.SwipeRefreshLayout
 
     implementation Libs.Android.NavigationFragments
     implementation Libs.Android.NavigationUI

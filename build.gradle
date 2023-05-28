@@ -13,14 +13,13 @@ buildscript {
                 Android  : [
                         CoreKtx              : "androidx.core:core-ktx:1.9.0",
                         FragmentKtx          : "androidx.fragment:fragment-ktx:1.5.5",
-                        ActivityKtx          : "androidx.activity:activity-ktx:1.6.1",
                         AppCompat            : "androidx.appcompat:appcompat:1.6.0",
                         LifecycleRuntimeKtx  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
                         LifecycleViewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
                         ConstraintLayout     : "androidx.constraintlayout:constraintlayout:2.1.4",
-                        RecyclerView         : "androidx.recyclerview:recyclerview:1.2.1",
                         NavigationFragments  : "androidx.navigation:navigation-fragment-ktx:$navVersion",
-                        NavigationUI         : "androidx.navigation:navigation-ui-ktx:$navVersion"
+                        NavigationUI         : "androidx.navigation:navigation-ui-ktx:$navVersion",
+                        SwipeRefreshLayout   : "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
                 ],
                 Google   : [
                         Material    : "com.google.android.material:material:1.7.0",
