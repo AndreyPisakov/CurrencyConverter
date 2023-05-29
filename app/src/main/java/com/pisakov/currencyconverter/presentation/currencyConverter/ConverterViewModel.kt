@@ -17,6 +17,6 @@ class ConverterViewModel @Inject constructor(
     }
 
     fun convertCurrency(currencyAmount: String, rate: Double): String {
-        return convertCurrencyUseCase.convertCurrency(currencyAmount.toDouble(), rate).toPlainString()
+        return convertCurrencyUseCase.convertCurrency(currencyAmount.toDouble(), rate)
     }
 }

@@ -1,7 +1,7 @@
 package com.pisakov.data.currency.di
 
-import com.pisakov.data.currency.repositotyes.CurrencyDataRepository
-import com.pisakov.data.currency.repositotyes.CurrencyDataRepositoryImpl
+import com.pisakov.data.currency.repositories.CurrencyDataRepository
+import com.pisakov.data.currency.repositories.CurrencyDataRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

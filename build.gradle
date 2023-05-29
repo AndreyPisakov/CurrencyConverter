@@ -32,6 +32,11 @@ buildscript {
                 Retrofit : [
                         Retrofit            : "com.squareup.retrofit2:retrofit:$retrofitVersion",
                         RetrofitConverter   : "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+                ],
+                Test    : [
+                        Junit           : "junit:junit:4.13.2",
+                        MockK           : "io.mockk:mockk:1.12.4",
+                        CoroutinesTest  : "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
                 ]
         ]
 

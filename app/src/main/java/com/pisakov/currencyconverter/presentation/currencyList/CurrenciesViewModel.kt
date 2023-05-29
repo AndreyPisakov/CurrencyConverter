@@ -17,7 +17,7 @@ class CurrenciesViewModel @Inject constructor(
     private val getCurrenciesUseCase: GetCurrenciesUseCase
 ) : ViewModel() {
 
-    private var _currenciesStateFlow = MutableSharedFlow<List<Currency>?>(1)
+    private var _currenciesStateFlow = MutableSharedFlow<List<Currency>>(1)
     val currenciesStateFlow = _currenciesStateFlow.asSharedFlow()
 
     init {

@@ -57,6 +57,10 @@ dependencies {
     implementation Libs.Google.Hilt
     kapt Libs.Google.HiltCompiler
 
+    testImplementation Libs.Test.Junit
+    testImplementation Libs.Test.MockK
+    testImplementation Libs.Test.CoroutinesTest
+
 
 
     implementation project(Modules.Core.CommonImpl)

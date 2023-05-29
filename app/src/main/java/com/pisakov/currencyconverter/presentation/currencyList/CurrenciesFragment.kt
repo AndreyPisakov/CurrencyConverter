@@ -86,7 +86,7 @@ class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
             SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
                 viewModel.currenciesStateFlow
-                    .map { it!!.filter { currency -> currency.currencyCode.startsWith(newText, true) } }
+                    .map { it.filter { currency -> currency.currencyCode.startsWith(newText, true) } }
                     .observeStateOn(viewLifecycleOwner) {
                         currencyAdapter.submitList(it)
                     }
