@@ -6,19 +6,16 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pisakov.currencyconverter.R
 import com.pisakov.currencyconverter.databinding.FragmentCurrenciesBinding
 import com.pisakov.currencyconverter.presentation.ScreenMetrics
+import com.pisakov.presentation.liveEvent.observeEvent
 import com.pisakov.presentation.observeStateOn
 import com.pisakov.presentation.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
@@ -51,18 +48,13 @@ class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
     }
 
     private fun loadingErrorHandling() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            delay(5000)
-            launch(Dispatchers.Main) {
-                if (binding.swipeRefreshLayout.isRefreshing) {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.something_was_wrong),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
+        viewModel.errorLiveEvent.observeEvent(viewLifecycleOwner) { message ->
+            binding.swipeRefreshLayout.isRefreshing = false
+            Toast.makeText(
+                requireContext(),
+                message,
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

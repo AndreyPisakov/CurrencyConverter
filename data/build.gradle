@@ -42,6 +42,4 @@ dependencies {
     testImplementation Libs.Test.Junit
     testImplementation Libs.Test.MockK
     testImplementation Libs.Test.CoroutinesTest
-
-    implementation project(Modules.Core.Common)
 }

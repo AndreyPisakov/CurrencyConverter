@@ -1,24 +1,32 @@
 package com.pisakov.currencyconverter.presentation.currencyList
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.pisakov.common.Logger
+import com.pisakov.common.Resources
+import com.pisakov.currencyconverter.R
 import com.pisakov.currencyconverter.domain.currencyList.GetCurrenciesUseCase
 import com.pisakov.currencyconverter.domain.entities.Currency
+import com.pisakov.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 @HiltViewModel
 class CurrenciesViewModel @Inject constructor(
-    private val getCurrenciesUseCase: GetCurrenciesUseCase
-) : ViewModel() {
+    private val getCurrenciesUseCase: GetCurrenciesUseCase,
+    private val logger: Logger,
+    private val resources: Resources
+) : BaseViewModel() {
 
     private var _currenciesStateFlow = MutableSharedFlow<List<Currency>>(1)
     val currenciesStateFlow = _currenciesStateFlow.asSharedFlow()
+
+    val errorLiveEvent = liveEvent<String>()
 
     init {
         getCurrenciesList()
@@ -36,7 +44,15 @@ class CurrenciesViewModel @Inject constructor(
     fun updateCurrencyRates() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                getCurrenciesUseCase.updateCurrencies()
+                try {
+                    getCurrenciesUseCase.updateCurrencies()
+                } catch (e: UnknownHostException) {
+                    logger.err(e, "unknown host")
+                    errorLiveEvent.publish(resources.getString(R.string.data_loading_error))
+                } catch (e: Exception) {
+                    logger.err(e, "api response not success")
+                    errorLiveEvent.publish(resources.getString(R.string.error))
+                }
             }
         }
     }

@@ -4,4 +4,6 @@ interface CoreProvider {
 
     val logger: Logger
 
+    val resources: Resources
+
 }
