@@ -5,6 +5,7 @@ import com.pisakov.common.Logger
 import com.pisakov.common.Resources
 import com.pisakov.currencyconverter.R
 import com.pisakov.currencyconverter.domain.currencyList.GetCurrenciesUseCase
+import com.pisakov.currencyconverter.domain.currencyList.HandlingChangesRatesUseCase
 import com.pisakov.currencyconverter.domain.entities.Currency
 import com.pisakov.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +23,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CurrenciesViewModel @Inject constructor(
     private val getCurrenciesUseCase: GetCurrenciesUseCase,
+    private val handlingChangesRatesUseCase: HandlingChangesRatesUseCase,
     private val logger: Logger,
     private val resources: Resources
 ) : BaseViewModel() {
@@ -39,7 +41,8 @@ class CurrenciesViewModel @Inject constructor(
     private fun getCurrenciesList() {
         viewModelScope.launch {
             getCurrenciesUseCase.getCurrencies().collect {
-                _currenciesStateFlow.emit(it)
+                val listAfterHandling = handlingChangesRatesUseCase.handlingChangesRates(it)
+                _currenciesStateFlow.emit(listAfterHandling)
             }
         }
     }
