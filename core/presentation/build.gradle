@@ -37,4 +37,10 @@ dependencies {
     implementation Libs.Android.AppCompat
     implementation Libs.Android.LifecycleRuntimeKtx
     implementation Libs.Android.LifecycleViewModelKtx
+
+    testImplementation Libs.Test.Junit
+    testImplementation Libs.Test.MockK
+    testImplementation Libs.Test.CoroutinesTest
+    testImplementation Libs.Test.ArchTest
+
 }
