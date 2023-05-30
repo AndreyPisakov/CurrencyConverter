@@ -14,6 +14,9 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.net.UnknownHostException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -55,5 +58,13 @@ class CurrenciesViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun getUpdateTime(): String {
+        return SimpleDateFormat(DATE_TIME_PATTERN, Locale.getDefault()).format(Date())
+    }
+
+    companion object {
+        const val DATE_TIME_PATTERN = "dd.MM.yy HH:mm:ss"
     }
 }
