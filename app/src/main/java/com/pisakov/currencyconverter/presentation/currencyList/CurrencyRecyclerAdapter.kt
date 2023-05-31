@@ -34,6 +34,7 @@ class CurrencyRecyclerAdapter(private val click: (currency: Currency) -> Unit) :
                 cardView.layoutParams.width = ScreenMetrics.screenWidth / ScreenMetrics.SPAN_COUNT - ScreenMetrics.dpToPx
                 tvCurrency.text = currency.currencyCode
                 tvRate.text = currency.rate.toString()
+                changesView.setState(currency.stateOfChangesRates)
             }
         }
     }

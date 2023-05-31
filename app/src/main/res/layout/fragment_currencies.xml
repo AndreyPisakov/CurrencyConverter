@@ -8,6 +8,38 @@
     android:background="@color/screenBackground"
     tools:context=".presentation.currencyList.CurrenciesFragment">
 
+    <TextView
+        android:id="@+id/tvPreviousUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/previous_update" />
+
+    <TextView
+        android:id="@+id/tvPreviousUpdateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintStart_toEndOf="@id/tvPreviousUpdate"
+        tools:text="30.05.23 15:11:34" />
+
+    <TextView
+        android:id="@+id/tvLastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvPreviousUpdate"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/last_update" />
+
+    <TextView
+        android:id="@+id/tvLastUpdateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvPreviousUpdate"
+        app:layout_constraintStart_toEndOf="@id/tvLastUpdate"
+        tools:text="30.05.23 15:15:07" />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -15,7 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_view">
+        app:layout_constraintTop_toBottomOf="@+id/tvLastUpdate">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

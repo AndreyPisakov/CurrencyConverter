@@ -31,13 +31,16 @@ class CurrenciesFragment : Fragment(R.layout.fragment_currencies) {
         initRecycler(view)
         searching()
         swipeToRefresh()
+        loadingErrorHandling()
 
         viewModel.currenciesStateFlow.observeStateOn(viewLifecycleOwner) {
             currencyAdapter.submitList(it)
-            binding.swipeRefreshLayout.isRefreshing = false
+            with(binding) {
+                swipeRefreshLayout.isRefreshing = false
+                tvPreviousUpdateValue.text = tvLastUpdateValue.text
+                tvLastUpdateValue.text = viewModel.getUpdateTime()
+            }
         }
-
-        loadingErrorHandling()
     }
 
     private fun swipeToRefresh() {

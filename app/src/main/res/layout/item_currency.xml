@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingHorizontal="@dimen/padding"
+    android:paddingHorizontal="@dimen/small_padding"
     android:paddingTop="@dimen/padding">
 
     <androidx.cardview.widget.CardView
@@ -34,9 +34,16 @@
                 android:id="@+id/tvRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
+                android:layout_gravity="center_vertical"
                 android:textColor="@color/text"
+                android:layout_weight="3"
                 tools:text="0,012502" />
+
+            <com.pisakov.currencyconverter.presentation.views.ChangesView
+                android:id="@+id/changesView"
+                android:layout_width="@dimen/changes_view"
+                android:layout_height="@dimen/changes_view"
+                android:layout_gravity="center_vertical|end"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -7,4 +7,6 @@
     <string name="something_was_wrong">Something was wrong</string>
     <string name="data_loading_error">Data loading error. Check your internet connection.</string>
     <string name="error">Error</string>
+    <string name="previous_update">Previous update:</string>
+    <string name="last_update">Last update:</string>
 </resources>
