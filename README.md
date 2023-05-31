@@ -18,7 +18,6 @@
 Данные с api изменяются раз в сутки, поэтому, при обновлении списка, вызывается метод, который генерирует фейковые изменения в данных. 
 ![][3]
 
-[1]: https://wampi.ru/image/RV2pSlQ
-[2]: https://wampi.ru/image/RV2p0Zz
-[3]: https://wampi.ru/image/RV2p2yH
-
+[1]: https://ie.wampi.ru/2023/05/31/photo_2023-05-31_16-54-38.jpg
+[2]: https://ic.wampi.ru/2023/05/31/photo_2023-05-31_16-54-21.jpg
+[3]: https://im.wampi.ru/2023/05/31/photo_2023-05-31_16-54-32.jpg
