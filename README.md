@@ -11,10 +11,10 @@
 API\
 В качестве API для получения данных о курсе валют был ипользован <https://www.exchangerate-api.com/docs/overview>
 
-[<img src="https://ie.wampi.ru/2023/05/31/photo_2023-05-31_16-54-38.jpg" width="250" height="250"/>](https://ie.wampi.ru/2023/05/31/photo_2023-05-31_16-54-38.jpg)
+[<img src="https://ie.wampi.ru/2023/05/31/photo_2023-05-31_16-54-38.jpg" width="288" height="640"/>](https://ie.wampi.ru/2023/05/31/photo_2023-05-31_16-54-38.jpg)
 
-[<img src="https://ic.wampi.ru/2023/05/31/photo_2023-05-31_16-54-21.jpg" width="250" height="250"/>](https://ic.wampi.ru/2023/05/31/photo_2023-05-31_16-54-21.jpg)
+[<img src="https://ic.wampi.ru/2023/05/31/photo_2023-05-31_16-54-21.jpg" width="288" height="640"/>](https://ic.wampi.ru/2023/05/31/photo_2023-05-31_16-54-21.jpg)
 
 Данные с api изменяются раз в сутки, поэтому, при обновлении списка, вызывается метод, который генерирует фейковые изменения в данных.
 
-[<img src="https://im.wampi.ru/2023/05/31/photo_2023-05-31_16-54-32.jpg" width="250" height="250"/>](https://im.wampi.ru/2023/05/31/photo_2023-05-31_16-54-32.jpg)
+[<img src="https://im.wampi.ru/2023/05/31/photo_2023-05-31_16-54-32.jpg" width="288" height="640"/>](https://im.wampi.ru/2023/05/31/photo_2023-05-31_16-54-32.jpg)
