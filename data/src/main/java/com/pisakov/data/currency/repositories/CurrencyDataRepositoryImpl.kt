@@ -48,7 +48,7 @@ class CurrencyDataRepositoryImpl @Inject constructor(
                 val start = element.value - element.value / 100 * count
                 val end = element.value + element.value / 100 *  count
                 val newValue = Random.nextDouble(start, end)
-                (newValue * 1000000.0).roundToInt() / 1000000.0
+                (newValue * 100000.0).roundToInt() / 100000.0
             }
             else
                 element.value

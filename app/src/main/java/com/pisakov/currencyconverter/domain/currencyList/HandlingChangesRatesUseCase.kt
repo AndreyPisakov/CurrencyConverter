@@ -6,6 +6,7 @@ import com.pisakov.currencyconverter.domain.entities.StateOfChangesRates
 import javax.inject.Inject
 
 class HandlingChangesRatesUseCase @Inject constructor() {
+
     fun handlingChangesRates(list : List<Currency>): List<Currency> {
         val oldList = LastCurrenciesList.lastList
         LastCurrenciesList.lastList = list
